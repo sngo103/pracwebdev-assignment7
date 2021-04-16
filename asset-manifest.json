@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/pracwebdev-assignment7/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/pracwebdev-assignment7/static/js/main.60426730.chunk.js",
+    "main.js.map": "/pracwebdev-assignment7/static/js/main.60426730.chunk.js.map",
+    "runtime-main.js": "/pracwebdev-assignment7/static/js/runtime-main.99e39a3c.js",
+    "runtime-main.js.map": "/pracwebdev-assignment7/static/js/runtime-main.99e39a3c.js.map",
+    "static/js/2.da7da21c.chunk.js": "/pracwebdev-assignment7/static/js/2.da7da21c.chunk.js",
+    "static/js/2.da7da21c.chunk.js.map": "/pracwebdev-assignment7/static/js/2.da7da21c.chunk.js.map",
+    "static/js/3.07fdb866.chunk.js": "/pracwebdev-assignment7/static/js/3.07fdb866.chunk.js",
+    "static/js/3.07fdb866.chunk.js.map": "/pracwebdev-assignment7/static/js/3.07fdb866.chunk.js.map",
+    "index.html": "/pracwebdev-assignment7/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/pracwebdev-assignment7/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.da7da21c.chunk.js.LICENSE.txt": "/pracwebdev-assignment7/static/js/2.da7da21c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.99e39a3c.js",
+    "static/js/2.da7da21c.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.60426730.chunk.js"
+  ]
+}
