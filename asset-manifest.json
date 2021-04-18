@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/pracwebdev-assignment7/static/css/main.6dea0f05.chunk.css",
-    "main.js": "/pracwebdev-assignment7/static/js/main.1926f253.chunk.js",
-    "main.js.map": "/pracwebdev-assignment7/static/js/main.1926f253.chunk.js.map",
+    "main.js": "/pracwebdev-assignment7/static/js/main.347abb1f.chunk.js",
+    "main.js.map": "/pracwebdev-assignment7/static/js/main.347abb1f.chunk.js.map",
     "runtime-main.js": "/pracwebdev-assignment7/static/js/runtime-main.32cdc727.js",
     "runtime-main.js.map": "/pracwebdev-assignment7/static/js/runtime-main.32cdc727.js.map",
     "static/js/2.63223371.chunk.js": "/pracwebdev-assignment7/static/js/2.63223371.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.32cdc727.js",
     "static/js/2.63223371.chunk.js",
     "static/css/main.6dea0f05.chunk.css",
-    "static/js/main.1926f253.chunk.js"
+    "static/js/main.347abb1f.chunk.js"
   ]
 }
