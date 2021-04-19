@@ -1,15 +1,15 @@
-import React, {Component} from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import React from 'react';
+import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Home from './components/Home';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
-        <Router>
+        <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Home}/>
           </Switch>
-        </Router>
+        </BrowserRouter>
     );
   }
 }
