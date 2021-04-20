@@ -30,7 +30,7 @@ class LogIn extends Component {
 
   render () {
     if (this.state.redirect) {
-      return (<Redirect to="/userProfile"/>)
+      return (<Redirect to="/pracwebdev-assignment7/userProfile"/>)
     }
 
     return (
