@@ -81,12 +81,14 @@ class App extends Component {
             />
           </Switch>
         </Router>
-        <br /> <br />
+        <br />
         <div className="text-center text-black font-semibold">
           {" "}
           ❤️ Brought to you by Team Food: Samantha Ngo, Gabby Gonzalez, Nirmala Kuhl, Kristy Lau ❤️ <br />
           April 2021
         </div>
+        <br />
+        <br />
       </>
     );
   }

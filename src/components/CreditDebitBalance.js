@@ -12,7 +12,7 @@ class CreditDebitBalance extends Component {
           Debit Balance: ${this.props.debitBalance}
         </div>
         <div className="inline-flex items-center justify-center m-3 px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-50">
-          Final Balance: ${this.props.accountBalance}
+          Account Balance: ${this.props.accountBalance}
         </div>
       </>
     );
