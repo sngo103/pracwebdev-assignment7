@@ -31,7 +31,10 @@ class LogIn extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/pracwebdev-assignment7/home" />;
+      return <Redirect to={{
+        pathname: "/pracwebdev-assignment7/home",
+        state: { userName: this.state.user }
+      }} />;
     }
 
     return (

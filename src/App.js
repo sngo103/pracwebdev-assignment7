@@ -30,10 +30,11 @@ class App extends Component {
     const LogInComponent = () => (
       <LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />
     );
-    const HomeComponent = () => (
+    const HomeComponent = (props) => (
       <Home
         user={this.state.currentUser.userName}
         accountBalance={this.state.accountBalance}
+        {...props}
       />
     );
     const DebitComponent = () => (
