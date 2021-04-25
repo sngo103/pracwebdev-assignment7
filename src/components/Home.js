@@ -16,7 +16,9 @@ class Home extends Component {
         </h1>
 
         <AccountBalance accountBalance={this.props.accountBalance} /><br />
-        <Link className="w-full flex items-center justify-center  border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:text-lg" to="/pracwebdev-assignment7/userProfile">My Profile</Link>
+        <Link className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-red-400 hover:bg-red-500 md:text-lg my-2" to="/pracwebdev-assignment7/debits">My Debits</Link>
+        <Link className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-green-400 hover:bg-green-500 md:text-lg my-2" to="/pracwebdev-assignment7/credits">My Credits</Link>
+        <Link className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 md:text-lg my-2" to="/pracwebdev-assignment7/userProfile">My Profile</Link>
       </div>
     );
   }
