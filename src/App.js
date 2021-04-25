@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './components/Home';
 import UserProfile from './components/UserProfile';
 import LogIn from './components/Login';
+import './index.css';
 
 class App extends Component {
-
   constructor() {
     super();
 
@@ -28,12 +28,11 @@ class App extends Component {
 
     return (
         <Router>
-          <div>
-            <Route exact path="/pracwebdev-assignment7/" render={HomeComponent}/>
+          <Switch>
             <Route exact path="/pracwebdev-assignment7/userProfile" render={UserProfileComponent}/>
             <Route exact path="/pracwebdev-assignment7/login" render={LogInComponent}/>
-
-          </div>
+            <Route exact path="/pracwebdev-assignment7/" render={HomeComponent}/>
+          </Switch>
         </Router>
     );
   }
