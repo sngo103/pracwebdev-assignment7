@@ -20,6 +20,12 @@ class App extends Component {
     };
   }
 
+  mockLogIn = (logInInfo) => {
+    const newUser = {...this.state.currentUser}
+    newUser.userName = logInInfo.userName
+    this.setState({currentUser: newUser})
+  }
+
   render() {
     const LogInComponent = () => (
       <LogIn user={this.state.currentUser} mockLogIn={this.mockLogIn} />
@@ -49,8 +55,13 @@ class App extends Component {
           <Switch>
             <Route
               exact
-              path="/pracwebdev-assignment7/login"
+              path="/pracwebdev-assignment7/"
               render={LogInComponent}
+            />
+            <Route
+              exact
+              path="/pracwebdev-assignment7/home"
+              render={(props) => HomeComponent(props)}
             />
             <Route
               exact
@@ -66,11 +77,6 @@ class App extends Component {
               exact
               path="/pracwebdev-assignment7/credits"
               render={CreditComponent}
-            />
-            <Route
-              exact
-              path="/pracwebdev-assignment7/"
-              render={HomeComponent}
             />
           </Switch>
         </Router>

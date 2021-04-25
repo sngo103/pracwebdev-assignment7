@@ -10,10 +10,6 @@ class Home extends Component {
         <img className="inline-block p-3" src={bankIcon} alt="bank" />
         <br />
         <h1 className="text-5xl p-5 font-bold">Bank of React</h1>
-        <h1 className="text-l p-1">
-          Brought to you by the Foodies
-          <br /> Samantha Ngo, Gabby Gonzalez, Nirmala Kuhl, Kristy Lau
-        </h1>
 
         <AccountBalance accountBalance={this.props.accountBalance} /><br />
         <Link className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-red-400 hover:bg-red-500 md:text-lg my-2" to="/pracwebdev-assignment7/debits">My Debits</Link>
