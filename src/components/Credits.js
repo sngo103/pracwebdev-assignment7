@@ -190,7 +190,7 @@ class Credits extends Component {
         </Link>
         <Link
           className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 md:text-lg my-2"
-          to="/pracwebdev-assignment7/"
+          to="/pracwebdev-assignment7/home"
         >
           {" "}
           Return to Home{" "}

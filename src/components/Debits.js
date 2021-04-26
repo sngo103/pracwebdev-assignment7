@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AccountBalance from "./AccountBalance";
+import CreditDebitBalance from "./CreditDebitBalance";
 import debitIcon from "../debit.png";
 import axios from "axios";
 
@@ -8,77 +8,197 @@ class Debits extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      apiData: [],
-      ingredient: "",
-      found: false,
-      table: "",
+      debitBalance: 0.0,
+      accountBalance: this.props.accountBalance,
+      debits: [],
+      newDebit: {
+        amount: 0.0,
+        date: "",
+        description: "",
+      },
+      displayTable: "",
+      error: false,
     };
+
+    this.handleAmountChange = this.handleAmountChange.bind(this);
+    this.handleDateChange = this.handleDateChange.bind(this);
+    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleInputChange = (event) => {
-    console.log("Changing Input...");
-    this.setState({ ingredient: event.target.value });
-  };
+  formatDebit(debitObj) {
+    let newElement = (
+      <>
+        <div className="flex justify-center items-center col-span-2 m-1 px-2 py-1 bg-red-600 font-medium rounded-md text-white">
+          {debitObj.date}
+        </div>
+        <div className="flex justify-center items-center col-span-1 m-1 px-2 py-1 border-2 border-red-500 font-medium rounded-md text-red-600 bg-red-50">
+          {debitObj.amount}
+        </div>
+        <div className="flex justify-center-left items-center-left col-span-9 m-1 px-2 py-1 border-2 border-red-500 font-medium rounded-md text-red-600 bg-red-50">
+          {"No description provided."}
+        </div>
+      </>
+    );
+    return newElement;
+  }
 
-  handleClick = async (event) => {
-    event.preventDefault();
-    console.log("Running handleSearchClick...");
-    let ingredient = this.state.ingredient;
-    let linkToAPI =
-      "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + ingredient;
-
-    const response = await axios
-      .get(linkToAPI)
+  async componentDidMount() {
+    await axios
+      .get("https://moj-api.herokuapp.com/debits")
       .then((res) => {
-        console.log("DATA:", res.data);
-        console.log("RES:", res);
-        this.setState({ apiData: res.data, found: true });
+        console.log("Debit:", res.data);
+        const reducer = (accumulator, currentItem) =>
+          accumulator + currentItem.amount;
+        const debitBalance = res.data.reduce(reducer, 0.0);
+        console.log("CREDITBALANCE:", debitBalance);
+        let debits = res.data.map((debit) => {
+          return this.formatDebit(debit);
+        });
+        this.setState({ debits: debits, debitBalance: debitBalance });
       })
       .catch((error) => {
         console.log("Error:", error);
-        this.setState({ found: false });
+        this.setState({ error: true });
       });
+  }
+
+  handleAmountChange = (event) => {
+    const newObj = {
+      date: this.state.newDebit.date,
+      amount: event.target.value,
+      description: this.state.newDebit.description,
+    };
+    this.setState({ newDebit: newObj });
   };
 
-  makeTable = () => {
-    console.log("Running makeTable...");
-    let data = this.state.apiData;
-    let foundMatch = this.state.found;
-    let table = [];
-    if (!foundMatch || !data.drinks) {
-      return <div>No results.</div>;
-    } else {
-      table = data.drinks.map(function (cocktail) {
-        console.log("DRINK:", cocktail)
-        return (
-          <>
-            <div className="border-2 border-black grid grid-cols-10 p-1 gap-2">
-              <div className="p-1 border-2 col-span-1 row-span-1">
-                <img className="transform hover:scale-150" src={cocktail.strDrinkThumb} alt={cocktail.strDrink} />
-              </div>{" "}
-              <div className="font-bold p-1 border-2 row-span-1 col-span-9 justify-center items-center flex">
-                {cocktail.strDrink}
-              </div>
-            </div>
-            <br />
-          </>
-        );
-      });
-    }
-    return table;
+  handleDateChange = (event) => {
+    const newObj = {
+      date: event.target.value,
+      amount: this.state.newDebit.amount,
+      description: this.state.newDebit.description,
+    };
+    this.setState({ newDebit: newObj });
+  };
+
+  handleDescriptionChange = (event) => {
+    const newObj = {
+      date: this.state.newDebit.date,
+      amount: this.state.newDebit.amount,
+      description: event.target.value,
+    };
+    this.setState({ newDebit: newObj });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    let newDebits = this.state.debits;
+    console.log("NEWCRED:", this.state.newDebit);
+    newDebits.push(this.formatDebit(this.state.newDebit));
+    console.log("NEWCREDITS:", newDebits);
+    this.setState({
+      debits: newDebits,
+      newDebit: {
+        amount: 0.0,
+        date: "",
+        description: "",
+      },
+    });
   };
 
   render() {
+    console.log("NEW RENDER:", this.state.debits);
     return (
       <div className="container justify-center text-center">
-        <img className="inline-block p-3" src={debitIcon} alt="bank" />
+        <img className="inline-block pb-3 pt-10" src={debitIcon} alt="bank" />
         <br />
         <h1 className="text-5xl p-5 font-bold">My Debits</h1>
 
-        <AccountBalance accountBalance={this.props.accountBalance} /><br />
+        <CreditDebitBalance
+          type="debit"
+          debitBalance={this.state.debitBalance}
+          accountBalance={this.state.accountBalance}
+        />
+        <br />
 
-        <Link className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-green-400 hover:bg-green-500 md:text-lg my-2" to="/pracwebdev-assignment7/credits">My Credits</Link>
-        <Link className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 md:text-lg my-2" to="/pracwebdev-assignment7/"> Return to Home </Link>
+        <div className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-red-600 md:text-lg">
+          Debit History
+        </div>
+        {this.state.error ? (
+          <div> Something went wrong, please try again. </div>
+        ) : (
+          <div className="grid grid-cols-12 py-1 border border-transparent font-medium text-red-600 bg-white">
+            <div className="flex justify-center items-center col-span-2 m-1 px-2 py-1 font-medium text-white bg-red-600">
+              Date
+            </div>
+            <div className="flex justify-center items-center col-span-1 m-1 px-2 py-1 font-medium text-white bg-red-600">
+              Amount
+            </div>
+            <div className="flex justify-center-left items-center-left col-span-9 m-1 px-2 py-1 font-medium text-white bg-red-600">
+              Description
+            </div>
+            {this.state.debits}
+          </div>
+        )}
+
+        <div className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-red-600 md:text-lg my-2">
+          Add New Debit
+        </div>
+        <form onSubmit={this.handleSubmit}>
+          <div className="container m-3">
+            <label className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-white bg-red-500">
+              Amount
+            </label>
+            <input
+              required
+              type="text"
+              onChange={this.handleAmountChange}
+              value={this.state.newDebit.amount}
+              className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-red-600 bg-red-50"
+            />
+          </div>
+          <div className="container m-3">
+            <label className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-white bg-red-500">
+              Date
+            </label>
+            <input
+              required
+              type="date"
+              onChange={this.handleDateChange}
+              value={this.state.newDebit.date}
+              className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-red-600 bg-red-50"
+            />
+          </div>
+          <div className="grid grid-cols-4 m-3">
+            <label className="flex justify-center items-center col-start-2 m-1 px-1 py-1 border border-transparent text-base font-medium rounded-md text-white bg-red-500">
+              Description
+            </label>
+            <textarea
+              onChange={this.handleDescriptionChange}
+              value={this.state.newDebit.description}
+              className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-red-600 bg-red-50"
+            />
+          </div>
+          <input
+            type="submit"
+            value="Submit"
+            className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-white bg-red-600 hover:bg-red-500"
+          />
+        </form>
+
+        <Link
+          className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-green-400 hover:bg-green-500 md:text-lg my-2"
+          to="/pracwebdev-assignment7/credits"
+        >
+          My Credits
+        </Link>
+        <Link
+          className="w-full flex items-center justify-center  border border-transparent text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 md:text-lg my-2"
+          to="/pracwebdev-assignment7/home"
+        >
+          {" "}
+          Return to Home{" "}
+        </Link>
       </div>
     );
   }
