@@ -38,13 +38,13 @@ class LogIn extends Component {
     }
 
     return (
-      <div className="container justify-center text-center">
+      <div className="justify-center text-center items-center">
         <img className="inline-block p-3" src={bankIcon} alt="bank" />
         <br />
         <h1 className="text-5xl p-5 font-bold">Bank of React</h1>
         <h1 className="text-xl font-bold">*Sign in with any username and any password.</h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="container m-3">
+          <div className="m-3">
             <label className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-50" htmlFor="userName">User Name</label>
             <input
               type="text"
@@ -54,7 +54,7 @@ class LogIn extends Component {
               className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-50"
             />
           </div>
-          <div className="container m-3">
+          <div className="m-3">
             <label htmlFor="password" className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-50">Password</label>
             <input className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-50" type="password" name="password" />
           </div>

@@ -6,7 +6,7 @@ import bankIcon from "../bankofreact.png";
 class Home extends Component {
   render() {
     return (
-      <div className="container justify-center text-center">
+      <div className="justify-center text-center items-center">
         <img className="inline-block p-3" src={bankIcon} alt="bank" />
         <br />
         <h1 className="text-5xl p-5 font-bold">Bank of React</h1>

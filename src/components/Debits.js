@@ -101,7 +101,7 @@ class Debits extends Component {
 
   render() {
     return (
-      <div className="container justify-center text-center">
+      <div className="justify-center text-center">
         <img className="inline-block pb-3 pt-10" src={debitIcon} alt="bank" />
         <br />
         <h1 className="text-5xl p-5 font-bold">My Debits</h1>
@@ -135,7 +135,7 @@ class Debits extends Component {
           Add New Debit
         </div>
         <form onSubmit={this.handleSubmit}>
-          <div className="container m-3">
+          <div className="m-3">
             <label className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-white bg-red-500">
               Amount
             </label>
@@ -147,7 +147,7 @@ class Debits extends Component {
               className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-red-600 bg-red-50"
             />
           </div>
-          <div className="container m-3">
+          <div className="m-3">
             <label className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-white bg-red-500">
               Date
             </label>

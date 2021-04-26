@@ -103,7 +103,7 @@ class Credits extends Component {
 
   render() {
     return (
-      <div className="container justify-center text-center">
+      <div className="justify-center text-center">
         <img className="inline-block pb-3 pt-10" src={creditIcon} alt="bank" />
         <br />
         <h1 className="text-5xl p-5 font-bold">My Credits</h1>
@@ -135,7 +135,7 @@ class Credits extends Component {
           Add New Credit
         </div>
         <form onSubmit={this.handleSubmit}>
-          <div className="container m-3">
+          <div className="m-3">
             <label className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-white bg-green-500">
               Amount
             </label>
@@ -147,7 +147,7 @@ class Credits extends Component {
               className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-green-600 bg-green-50"
             />
           </div>
-          <div className="container m-3">
+          <div className="m-3">
             <label className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-white bg-green-500">
               Date
             </label>
