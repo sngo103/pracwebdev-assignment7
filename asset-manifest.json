@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/pracwebdev-assignment7/static/css/main.e87d3bd1.chunk.css",
-    "main.js": "/pracwebdev-assignment7/static/js/main.af8c8d5f.chunk.js",
-    "main.js.map": "/pracwebdev-assignment7/static/js/main.af8c8d5f.chunk.js.map",
-    "runtime-main.js": "/pracwebdev-assignment7/static/js/runtime-main.ec37e58f.js",
-    "runtime-main.js.map": "/pracwebdev-assignment7/static/js/runtime-main.ec37e58f.js.map",
-    "static/js/2.3aa03d73.chunk.js": "/pracwebdev-assignment7/static/js/2.3aa03d73.chunk.js",
-    "static/js/2.3aa03d73.chunk.js.map": "/pracwebdev-assignment7/static/js/2.3aa03d73.chunk.js.map",
-    "static/js/3.33f1deb7.chunk.js": "/pracwebdev-assignment7/static/js/3.33f1deb7.chunk.js",
-    "static/js/3.33f1deb7.chunk.js.map": "/pracwebdev-assignment7/static/js/3.33f1deb7.chunk.js.map",
+    "main.css": "/pracwebdev-assignment7/static/css/main.9e948e94.chunk.css",
+    "main.js": "/pracwebdev-assignment7/static/js/main.6d8b2cb1.chunk.js",
+    "main.js.map": "/pracwebdev-assignment7/static/js/main.6d8b2cb1.chunk.js.map",
+    "runtime-main.js": "/pracwebdev-assignment7/static/js/runtime-main.ff81d3ea.js",
+    "runtime-main.js.map": "/pracwebdev-assignment7/static/js/runtime-main.ff81d3ea.js.map",
+    "static/js/2.e8c94e49.chunk.js": "/pracwebdev-assignment7/static/js/2.e8c94e49.chunk.js",
+    "static/js/2.e8c94e49.chunk.js.map": "/pracwebdev-assignment7/static/js/2.e8c94e49.chunk.js.map",
+    "static/js/3.058533cf.chunk.js": "/pracwebdev-assignment7/static/js/3.058533cf.chunk.js",
+    "static/js/3.058533cf.chunk.js.map": "/pracwebdev-assignment7/static/js/3.058533cf.chunk.js.map",
     "index.html": "/pracwebdev-assignment7/index.html",
-    "static/css/main.e87d3bd1.chunk.css.map": "/pracwebdev-assignment7/static/css/main.e87d3bd1.chunk.css.map",
-    "static/js/2.3aa03d73.chunk.js.LICENSE.txt": "/pracwebdev-assignment7/static/js/2.3aa03d73.chunk.js.LICENSE.txt",
+    "static/css/main.9e948e94.chunk.css.map": "/pracwebdev-assignment7/static/css/main.9e948e94.chunk.css.map",
+    "static/js/2.e8c94e49.chunk.js.LICENSE.txt": "/pracwebdev-assignment7/static/js/2.e8c94e49.chunk.js.LICENSE.txt",
     "static/media/bankofreact.4ef31777.png": "/pracwebdev-assignment7/static/media/bankofreact.4ef31777.png",
     "static/media/credit.f3f71674.png": "/pracwebdev-assignment7/static/media/credit.f3f71674.png",
     "static/media/debit.c8d5fa92.png": "/pracwebdev-assignment7/static/media/debit.c8d5fa92.png",
     "static/media/profile.8d0a8730.png": "/pracwebdev-assignment7/static/media/profile.8d0a8730.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.ec37e58f.js",
-    "static/js/2.3aa03d73.chunk.js",
-    "static/css/main.e87d3bd1.chunk.css",
-    "static/js/main.af8c8d5f.chunk.js"
+    "static/js/runtime-main.ff81d3ea.js",
+    "static/js/2.e8c94e49.chunk.js",
+    "static/css/main.9e948e94.chunk.css",
+    "static/js/main.6d8b2cb1.chunk.js"
   ]
 }
