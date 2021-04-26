@@ -45,7 +45,6 @@ class Credits extends Component {
     await axios
       .get("https://moj-api.herokuapp.com/credits")
       .then((res) => {
-        console.log("Credit:", res.data);
         let credits = res.data.map((credit, index) => {
           return this.formatCredit(credit, index);
         });

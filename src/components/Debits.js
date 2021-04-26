@@ -45,7 +45,6 @@ class Debits extends Component {
     await axios
       .get("https://moj-api.herokuapp.com/debits")
       .then((res) => {
-        console.log("Debit:", res.data);
         let debits = res.data.map((debit) => {
           return this.formatDebit(debit);
         });
@@ -87,10 +86,8 @@ class Debits extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     let newDebits = this.state.debits;
-    console.log("NEWCRED:", this.state.newDebit);
     let newBalance = this.state.accountBalance - this.state.newDebit.amount;
     newDebits.push(this.formatDebit(this.state.newDebit));
-    console.log("NEWCREDITS:", newDebits);
     this.setState({
       accountBalance: newBalance,
       debits: newDebits,
