@@ -3,28 +3,19 @@
 #### Practical Web Development | Assignment 7 - Server-Side/Client-Side Rendering | 2021-04-22
 -----
 **List of Tasks**
-- [ ] AccountBalance:
-  - [ ] Update AccountBalance and show accurate balance
-- [ ] Debits Page:
-  - [ ] View Debits Page
-  - [ ] Display Accurate Debits with relevant information
-  - [ ] View accurate AccountBalance on Debits Page
-  - [ ] Add New Debits
-- [ ] Credits Page
-  - [ ] View Credits Page
-  - [ ] Display Accurate Credits with relevant information
-  - [ ] View accurate AccountBalance on Credits Page
-  - [ ] Add New Credits
 **Task Breakdown**
+*Note: Due to time constraints and overlap of many project deadlines, every member was not able to contribute as much as they would have normally. In the interest of time, Samantha took on most of the work in order to prioritize completion over even task distribution.*
 - Gabby: 
   - [x] Initial Setup
-  - [ ] TBD
+  - [x] Testing
 - Samantha: 
-  - [ ] Designed UI with TailwindCSS 
-  - [ ] TBD
+  - [x] Credit Features
+  - [x] Debit Features
+  - [x] UI Design
 - Nirmala: 
-  - [ ] TBD
+  - [x] Testing
 - Kristy: 
-  - [ ] TBD
+  - [x] Testing
+  - [x] Debugging
 ----
 **Link to Deployed App:** [https://sngo103.github.io/pracwebdev-assignment7/](https://sngo103.github.io/pracwebdev-assignment7/)
