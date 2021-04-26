@@ -19,3 +19,4 @@
   - [x] Debugging
 ----
 **Link to Deployed App:** [https://sngo103.github.io/pracwebdev-assignment7/](https://sngo103.github.io/pracwebdev-assignment7/)
+#### *Note: This project assumes that debits and credits from the API have already been included in the initial mock account balance.*
