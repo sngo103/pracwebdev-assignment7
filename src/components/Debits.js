@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import CreditDebitBalance from "./CreditDebitBalance";
+import AccountBalance from "./AccountBalance";
 import debitIcon from "../debit.png";
 import axios from "axios";
 
@@ -8,15 +8,13 @@ class Debits extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      debitBalance: 0.0,
       accountBalance: this.props.accountBalance,
       debits: [],
       newDebit: {
-        amount: 0.0,
+        amount: "",
         date: "",
         description: "",
       },
-      displayTable: "",
       error: false,
     };
 
@@ -33,10 +31,10 @@ class Debits extends Component {
           {debitObj.date}
         </div>
         <div className="flex justify-center items-center col-span-1 m-1 px-2 py-1 border-2 border-red-500 font-medium rounded-md text-red-600 bg-red-50">
-          {debitObj.amount}
+          -${debitObj.amount}
         </div>
         <div className="flex justify-center-left items-center-left col-span-9 m-1 px-2 py-1 border-2 border-red-500 font-medium rounded-md text-red-600 bg-red-50">
-          {"No description provided."}
+        {debitObj.description || <text className="text-gray-500">No description provided.</text>}
         </div>
       </>
     );
@@ -48,14 +46,10 @@ class Debits extends Component {
       .get("https://moj-api.herokuapp.com/debits")
       .then((res) => {
         console.log("Debit:", res.data);
-        const reducer = (accumulator, currentItem) =>
-          accumulator + currentItem.amount;
-        const debitBalance = res.data.reduce(reducer, 0.0);
-        console.log("CREDITBALANCE:", debitBalance);
         let debits = res.data.map((debit) => {
           return this.formatDebit(debit);
         });
-        this.setState({ debits: debits, debitBalance: debitBalance });
+        this.setState({ debits: debits });
       })
       .catch((error) => {
         console.log("Error:", error);
@@ -66,7 +60,7 @@ class Debits extends Component {
   handleAmountChange = (event) => {
     const newObj = {
       date: this.state.newDebit.date,
-      amount: event.target.value,
+      amount: parseFloat(event.target.value) || "",
       description: this.state.newDebit.description,
     };
     this.setState({ newDebit: newObj });
@@ -94,12 +88,14 @@ class Debits extends Component {
     event.preventDefault();
     let newDebits = this.state.debits;
     console.log("NEWCRED:", this.state.newDebit);
+    let newBalance = this.state.accountBalance - this.state.newDebit.amount;
     newDebits.push(this.formatDebit(this.state.newDebit));
     console.log("NEWCREDITS:", newDebits);
     this.setState({
+      accountBalance: newBalance,
       debits: newDebits,
       newDebit: {
-        amount: 0.0,
+        amount: "",
         date: "",
         description: "",
       },
@@ -107,16 +103,13 @@ class Debits extends Component {
   };
 
   render() {
-    console.log("NEW RENDER:", this.state.debits);
     return (
       <div className="container justify-center text-center">
         <img className="inline-block pb-3 pt-10" src={debitIcon} alt="bank" />
         <br />
         <h1 className="text-5xl p-5 font-bold">My Debits</h1>
 
-        <CreditDebitBalance
-          type="debit"
-          debitBalance={this.state.debitBalance}
+        <AccountBalance
           accountBalance={this.state.accountBalance}
         />
         <br />
@@ -137,7 +130,7 @@ class Debits extends Component {
             <div className="flex justify-center-left items-center-left col-span-9 m-1 px-2 py-1 font-medium text-white bg-red-600">
               Description
             </div>
-            {this.state.debits}
+            {this.state.debits.map((debit) => debit)}
           </div>
         )}
 

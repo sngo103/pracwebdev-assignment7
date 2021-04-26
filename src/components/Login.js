@@ -42,6 +42,7 @@ class LogIn extends Component {
         <img className="inline-block p-3" src={bankIcon} alt="bank" />
         <br />
         <h1 className="text-5xl p-5 font-bold">Bank of React</h1>
+        <h1 className="text-xl font-bold">*Sign in with any username and any password.</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="container m-3">
             <label className="m-1 px-3 py-1 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-indigo-50" htmlFor="userName">User Name</label>
